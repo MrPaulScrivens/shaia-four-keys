@@ -1,0 +1,1058 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<title>The Four Keys</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+/*  Shaia Astra : The Four Keys
+    Palette lifted from shaiaastra.com:
+      #ea3077 hot pink   #9b2e6f plum      #798424 olive
+      #00bfad teal       #f4cec2 peach     #cfa0a0 dusty rose
+      #2f363c ink        #016cb0 blue      #903b14 rust
+    Type: Lora (display, as she uses) + Jost (geometric sans standing in
+    for her Avenir Next, which is not web-licensable).
+*/
+:root{
+  --pink:#ea3077;
+  --pink-deep:#c8225f;
+  --plum:#9b2e6f;
+  --olive:#798424;
+  --olive-deep:#616a1c;
+  --teal:#00bfad;
+  --teal-deep:#009486;
+  --peach:#f4cec2;
+  --peach-soft:#fae6df;
+  --rose-dust:#cfa0a0;
+  --blue:#016cb0;
+  --rust:#903b14;
+
+  --ink:#2f363c;
+  --ink-soft:#5b6570;
+  --ink-faint:#8b949d;
+  --paper:#ffffff;
+  --paper-tint:#fdf7f4;
+  --paper-peach:#fcefe9;
+  --night:#1a262d;
+
+  --rule:rgba(47,54,60,.13);
+  --rule-peach:rgba(207,160,160,.4);
+
+  --display:"Lora",Georgia,"Times New Roman",serif;
+  --body:"Jost","Avenir Next","Avenir","Segoe UI",Helvetica,Arial,sans-serif;
+
+  --measure:35rem;
+  --gutter:clamp(1.4rem,5vw,3.5rem);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#f2ece8;
+    --ink-soft:#cdc4c0;
+    --ink-faint:#9d9490;
+    --paper:#141d23;
+    --paper-tint:#1a252c;
+    --paper-peach:#221f26;
+    --pink:#ff5c95;
+    --pink-deep:#ff85af;
+    --plum:#d071a8;
+    --olive:#a9b551;
+    --olive-deep:#bcc76d;
+    --teal:#2fd8c6;
+    --peach:#f6d8ce;
+    --rose-dust:#dcb2b2;
+    --blue:#4ba3dd;
+    --rule:rgba(242,236,232,.17);
+    --rule-peach:rgba(220,178,178,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#f2ece8;
+  --ink-soft:#cdc4c0;
+  --ink-faint:#9d9490;
+  --paper:#141d23;
+  --paper-tint:#1a252c;
+  --paper-peach:#221f26;
+  --pink:#ff5c95;
+  --pink-deep:#ff85af;
+  --plum:#d071a8;
+  --olive:#a9b551;
+  --olive-deep:#bcc76d;
+  --teal:#2fd8c6;
+  --peach:#f6d8ce;
+  --rose-dust:#dcb2b2;
+  --blue:#4ba3dd;
+  --rule:rgba(242,236,232,.17);
+  --rule-peach:rgba(220,178,178,.28);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(1.03rem,.97rem + .3vw,1.15rem);
+  line-height:1.75;
+  font-weight:300;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4{
+  font-family:var(--display);
+  font-weight:500;
+  line-height:1.14;
+  letter-spacing:-.012em;
+  margin:0;
+  text-wrap:balance;
+}
+p{margin:0 0 1.15em}
+p:last-child{margin-bottom:0}
+
+.wrap{max-width:74rem;margin:0 auto;padding-inline:var(--gutter);position:relative;z-index:1}
+
+/* ══════════ the aurora field ══════════
+   Her site uses aurora/nebula photography. Rendered here in CSS so the
+   page stays one portable file: layered radial gradients + grain.       */
+.cosmos{
+  position:relative;
+  isolation:isolate;
+  color:#fff;
+  overflow:hidden;
+  background:#0d1b24;
+}
+.cosmos::before{
+  content:"";
+  position:absolute;
+  inset:-30% -10%;
+  z-index:-2;
+  background:
+    radial-gradient(46% 38% at 18% 22%, rgba(0,191,173,.62), transparent 62%),
+    radial-gradient(52% 44% at 76% 30%, rgba(155,46,111,.72), transparent 66%),
+    radial-gradient(60% 48% at 46% 78%, rgba(234,48,119,.42), transparent 68%),
+    radial-gradient(44% 40% at 88% 76%, rgba(1,108,176,.52), transparent 64%),
+    radial-gradient(70% 60% at 30% 58%, rgba(121,132,36,.24), transparent 70%),
+    linear-gradient(160deg,#0d1b24 0%,#182635 44%,#241b30 100%);
+  filter:saturate(1.18);
+  animation:drift 34s ease-in-out infinite alternate;
+}
+@keyframes drift{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to{transform:translate3d(-2.5%,1.5%,0) scale(1.07)}
+}
+/* starfield + grain */
+.cosmos::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.5;
+  background-image:
+    radial-gradient(1.2px 1.2px at 12% 18%, rgba(255,255,255,.95), transparent 100%),
+    radial-gradient(1px 1px at 28% 62%, rgba(255,255,255,.75), transparent 100%),
+    radial-gradient(1.4px 1.4px at 47% 28%, rgba(255,255,255,.85), transparent 100%),
+    radial-gradient(1px 1px at 63% 74%, rgba(255,255,255,.7), transparent 100%),
+    radial-gradient(1.3px 1.3px at 81% 40%, rgba(255,255,255,.9), transparent 100%),
+    radial-gradient(1px 1px at 91% 66%, rgba(255,255,255,.65), transparent 100%),
+    radial-gradient(1.1px 1.1px at 38% 88%, rgba(255,255,255,.7), transparent 100%),
+    radial-gradient(1px 1px at 71% 12%, rgba(255,255,255,.8), transparent 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+.cosmos h1,.cosmos h2,.cosmos h3,.cosmos h4,.cosmos p{color:#fff}
+
+/* ══════════ nav ══════════ */
+.nav{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(16px) saturate(1.4);
+  -webkit-backdrop-filter:blur(16px) saturate(1.4);
+  border-bottom:1px solid transparent;
+  transition:border-color .35s ease;
+}
+.nav.stuck{border-bottom-color:var(--rule)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:1rem}
+.brand{
+  font-family:var(--display);
+  font-size:1.42rem;font-weight:600;letter-spacing:-.018em;
+  color:var(--ink);text-decoration:none;
+  display:inline-flex;align-items:baseline;gap:.2rem;white-space:nowrap;
+}
+.brand i{font-style:normal;color:var(--pink);font-size:.62em;transform:translateY(-.15em)}
+.nav-links{display:flex;gap:1.7rem;align-items:center;font-size:.9rem;font-weight:400}
+.nav-links a{color:var(--teal-deep);text-decoration:none;transition:color .25s ease}
+:root[data-theme="dark"] .nav-links a{color:var(--teal)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .nav-links a{color:var(--teal)}}
+.nav-links a:hover{color:var(--pink)}
+.nav-cta{
+  background:var(--teal);color:#fff!important;
+  padding:.5rem 1.15rem;border-radius:3px;font-weight:500;
+  transition:background .25s ease;
+}
+.nav-cta:hover{background:var(--teal-deep);color:#fff!important}
+@media (max-width:900px){.nav-links a:not(.nav-cta){display:none}}
+
+/* ══════════ hero ══════════ */
+.hero{padding-block:clamp(5.5rem,15vh,10rem) clamp(5rem,12vh,8rem)}
+.hero .wrap{max-width:62rem;text-align:center}
+
+.eyebrow{
+  font-family:var(--body);
+  font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;
+  font-weight:500;color:var(--peach);
+  margin:0 0 2rem;
+}
+h1{
+  font-size:clamp(2.4rem,1.4rem + 4.4vw,4.6rem);
+  line-height:1.14;letter-spacing:-.015em;font-weight:500;
+  margin-inline:auto;max-width:17ch;
+}
+h1 .pink{color:#ff8ab4;display:block}
+.hero-sub{
+  margin:2.6rem auto 0;max-width:34rem;
+  font-size:1.14rem;line-height:1.72;
+  color:rgba(255,255,255,.86);
+}
+.hero-sub strong{color:#fff;font-weight:500}
+.hero-keys{
+  margin-top:3rem;
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:.6rem 1.1rem;
+}
+.hero-keys span{
+  font-family:var(--display);
+  font-size:clamp(1.05rem,.95rem + .5vw,1.35rem);
+  font-style:italic;color:var(--peach);
+}
+.hero-keys span::after{content:"\00B7";margin-left:1.1rem;color:rgba(244,206,194,.5)}
+.hero-keys span:last-child::after{content:""}
+
+/* ══════════ sections ══════════ */
+.section{padding-block:clamp(4.5rem,10vh,7.5rem)}
+.tint{background:var(--paper-tint)}
+.peachy{background:var(--paper-peach)}
+
+.kicker{
+  font-family:var(--body);
+  font-size:.79rem;letter-spacing:.26em;text-transform:uppercase;
+  font-weight:500;color:var(--olive);margin:0 0 1.4rem;
+}
+.kicker-pink{color:var(--pink)}
+.kicker-teal{color:var(--teal-deep)}
+:root[data-theme="dark"] .kicker-teal{color:var(--teal)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .kicker-teal{color:var(--teal)}}
+
+h2{
+  font-size:clamp(1.9rem,1.3rem + 2.6vw,3.15rem);
+  font-weight:500;letter-spacing:-.014em;max-width:20ch;
+}
+h2 .pink{color:var(--pink)}
+h2 .plum{color:var(--plum)}
+h2 .blue{color:var(--blue)}
+.lede{margin-top:1.6rem;font-size:1.14rem;line-height:1.72;color:var(--ink-soft);max-width:34rem}
+
+/* ── the four doors ── */
+.doors-head{display:grid;gap:1.6rem;margin-bottom:clamp(2.8rem,6vh,4.2rem)}
+@media(min-width:900px){
+  .doors-head{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:4rem;align-items:end}
+}
+.doors{display:grid;gap:clamp(1rem,2vw,1.4rem)}
+@media(min-width:780px){.doors{grid-template-columns:1fr 1fr}}
+
+.door{
+  background:var(--paper);
+  border:1px solid var(--rule-peach);
+  border-radius:4px;
+  padding:clamp(1.8rem,3.4vw,2.7rem);
+  position:relative;overflow:hidden;
+  transition:transform .45s cubic-bezier(.2,.7,.3,1), box-shadow .45s ease, border-color .45s ease;
+}
+.door::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,var(--pink),var(--plum));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .55s cubic-bezier(.2,.7,.3,1);
+}
+.door:hover{
+  transform:translateY(-3px);
+  border-color:transparent;
+  box-shadow:0 14px 40px -18px rgba(155,46,111,.45);
+}
+.door:hover::before{transform:scaleX(1)}
+
+.door h3{
+  font-size:clamp(1.6rem,1.25rem + 1.4vw,2.15rem);
+  font-weight:600;font-style:italic;color:var(--pink);
+  margin-bottom:1.1rem;letter-spacing:-.015em;
+}
+.door p{color:var(--ink-soft);font-size:1.02rem;line-height:1.7}
+.door .maybe{
+  margin-top:1.1rem;padding-top:1.1rem;
+  border-top:1px solid var(--rule-peach);
+  color:var(--ink-faint);font-style:italic;font-size:.98rem;line-height:1.62;
+}
+
+.doors-foot{margin-top:clamp(2.6rem,5vh,3.6rem);display:grid;gap:.5rem}
+.doors-foot p{
+  font-family:var(--display);
+  font-size:clamp(1.3rem,1.05rem + 1.15vw,1.85rem);
+  line-height:1.34;font-weight:500;margin:0;max-width:27ch;
+}
+.doors-foot p:first-child{color:var(--olive)}
+.doors-foot p:last-child{color:var(--pink);font-style:italic}
+
+/* ── story ── */
+.story-grid{display:grid;gap:2.4rem}
+@media(min-width:940px){
+  .story-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(3rem,7vw,6rem);align-items:start}
+  .story-aside{position:sticky;top:6.5rem}
+}
+.story h2{max-width:15ch}
+.story-body{font-size:1.08rem;line-height:1.8;color:var(--ink-soft)}
+.story-body p{margin-bottom:1.3em}
+.story-body .beat{
+  font-family:var(--display);
+  font-size:clamp(1.3rem,1.05rem + 1.05vw,1.75rem);
+  line-height:1.36;font-weight:500;color:var(--ink);margin:2rem 0;
+}
+.story-body .beat .pink{color:var(--pink);font-style:italic}
+.story-body .splat{color:var(--pink);font-weight:600;font-style:italic}
+
+.triad{
+  margin:1.9rem 0;padding-left:1.4rem;
+  border-left:3px solid var(--peach);
+  display:grid;gap:.3rem;
+}
+.triad span{
+  font-family:var(--display);font-size:1.14rem;
+  font-weight:400;font-style:italic;color:var(--ink);
+}
+
+/* ── seven turns ── */
+.turns{display:grid;border-top:1px solid var(--rule)}
+.turn{
+  display:grid;grid-template-columns:auto 1fr;
+  gap:1.1rem clamp(1.3rem,3.4vw,2.8rem);
+  padding-block:clamp(1.5rem,3vh,2.15rem);
+  border-bottom:1px solid var(--rule);
+  align-items:baseline;position:relative;
+}
+@media(min-width:820px){
+  .turn{grid-template-columns:4.5rem minmax(0,1fr) minmax(0,.85fr)}
+}
+.turn::after{
+  content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;
+  background:linear-gradient(90deg,var(--pink),var(--teal));
+  transition:width .85s cubic-bezier(.2,.7,.3,1);
+}
+.turn:hover::after{width:100%}
+.turn-n{
+  font-family:var(--display);
+  font-size:clamp(1.6rem,1.25rem + 1.4vw,2.3rem);
+  font-weight:500;font-style:italic;color:var(--olive);
+  line-height:1;letter-spacing:-.02em;
+}
+.turn h3{
+  font-size:clamp(1.18rem,1.02rem + .68vw,1.52rem);
+  font-weight:500;line-height:1.28;color:var(--ink);grid-column:2;
+}
+@media(max-width:819px){
+  .turn-n{grid-row:1;grid-column:1}
+  .turn h3{grid-row:1;grid-column:2}
+  .turn p{grid-row:2;grid-column:2}
+}
+.turn p{color:var(--ink-faint);font-size:1rem;line-height:1.62;margin:0}
+
+.turns-after{margin-top:clamp(2.8rem,6vh,4rem);display:grid;gap:.45rem;max-width:40rem}
+.turns-after .pre{color:var(--ink-soft);margin-bottom:.8rem}
+.turns-after p{
+  font-family:var(--display);
+  font-size:clamp(1.18rem,1rem + .95vw,1.58rem);
+  font-weight:500;line-height:1.38;margin:0;
+}
+.turns-after .last{color:var(--pink);font-style:italic;margin-top:.45rem}
+
+/* ── voices ── */
+.voices{display:grid;gap:clamp(1rem,2vw,1.5rem)}
+@media(min-width:820px){.voices{grid-template-columns:1fr 1fr}}
+.voice{
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:5px;
+  backdrop-filter:blur(3px);
+  padding:clamp(1.8rem,3.6vw,2.8rem);
+  display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem;
+}
+.voice blockquote{
+  margin:0;font-family:var(--display);
+  font-size:clamp(1.08rem,.98rem + .75vw,1.36rem);
+  font-weight:400;font-style:italic;line-height:1.55;
+  color:#fff;text-wrap:pretty;
+}
+.voice cite{
+  font-style:normal;font-size:.79rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--peach);font-weight:500;
+}
+
+/* ── keys ── */
+.keys{display:grid;gap:clamp(1rem,2vw,1.4rem);margin-top:clamp(2.4rem,5vh,3.4rem)}
+@media(min-width:640px){.keys{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.keys{grid-template-columns:repeat(4,1fr)}}
+
+.key{
+  background:var(--paper);
+  border:1px solid var(--rule-peach);
+  border-radius:4px;
+  padding:clamp(1.8rem,3.2vw,2.3rem) clamp(1.4rem,2.4vw,1.8rem);
+  text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;gap:1.4rem;
+  min-height:13rem;justify-content:space-between;
+  position:relative;overflow:hidden;
+  transition:transform .45s cubic-bezier(.2,.7,.3,1), box-shadow .45s ease, border-color .4s ease;
+}
+.key::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,var(--pink),var(--teal));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1);
+}
+.key:hover{
+  transform:translateY(-4px);border-color:transparent;
+  box-shadow:0 16px 44px -20px rgba(234,48,119,.5);
+}
+.key:hover::before{transform:scaleX(1)}
+.key:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.key h3{
+  font-size:clamp(1.45rem,1.2rem + 1.1vw,1.9rem);
+  font-weight:600;color:var(--plum);letter-spacing:-.015em;
+}
+.key .door-name{font-size:.96rem;color:var(--ink-faint);line-height:1.5;font-style:italic;margin-top:.5rem}
+.key .go{
+  font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:500;color:var(--pink);
+  display:inline-flex;align-items:center;gap:.55rem;
+}
+.key .go svg{transition:transform .42s cubic-bezier(.2,.7,.3,1)}
+.key:hover .go svg{transform:translateX(5px)}
+
+/* bundle */
+.bundle{
+  margin-top:clamp(1.4rem,3vw,2rem);
+  border-radius:5px;
+  padding:clamp(2.2rem,5vw,3.6rem);
+  display:grid;gap:2rem;
+  position:relative;overflow:hidden;isolation:isolate;
+  color:#fff;
+}
+.bundle::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(60% 80% at 15% 20%, rgba(0,191,173,.55), transparent 65%),
+    radial-gradient(70% 90% at 85% 75%, rgba(234,48,119,.6), transparent 68%),
+    linear-gradient(120deg,#9b2e6f,#5b2a6b 55%,#16323f);
+}
+@media(min-width:860px){
+  .bundle{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:3.5rem;align-items:center}
+}
+.bundle h3{font-size:clamp(1.75rem,1.35rem + 1.7vw,2.6rem);font-weight:500;color:#fff}
+.bundle h3 em{font-style:italic;color:var(--peach)}
+.bundle p{color:rgba(255,255,255,.85);margin-bottom:.8em;font-size:1.03rem}
+.bundle .plus{color:#fff;font-weight:600}
+.bundle-cta{display:flex;flex-direction:column;gap:.9rem;align-items:flex-start}
+@media(min-width:860px){.bundle-cta{align-items:flex-end;text-align:right}}
+.bundle .note{
+  font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--peach);margin:0;font-weight:500;
+}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:.65rem;
+  padding:1rem 2rem;
+  background:var(--pink);color:#fff;text-decoration:none;
+  font-family:var(--body);font-size:.86rem;letter-spacing:.13em;
+  text-transform:uppercase;font-weight:500;
+  border:0;border-radius:3px;cursor:pointer;
+  transition:background .28s ease, transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s ease;
+}
+.btn:hover{background:var(--pink-deep);transform:translateY(-2px);box-shadow:0 10px 26px -12px rgba(234,48,119,.7)}
+.btn:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.btn-teal{background:var(--teal)}
+.btn-teal:hover{background:var(--teal-deep);box-shadow:0 10px 26px -12px rgba(0,191,173,.7)}
+.btn[aria-disabled="true"]{
+  background:rgba(255,255,255,.18);color:rgba(255,255,255,.72);
+  cursor:default;pointer-events:none;box-shadow:none;
+}
+
+/* ── split / buzzwords ── */
+.split{display:grid;gap:2.6rem}
+@media(min-width:940px){.split{grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,5.5rem);align-items:start}}
+
+.buzz{display:grid;margin:0;padding:0;list-style:none;border-top:1px solid var(--rule-peach)}
+.buzz li{
+  padding-block:.9rem;border-bottom:1px solid var(--rule-peach);
+  font-family:var(--display);font-size:1.12rem;font-weight:400;
+  color:var(--ink-faint);position:relative;padding-left:1.6rem;
+  transition:color .3s ease;
+}
+.buzz li::before{
+  content:"";position:absolute;left:0;top:1.45rem;
+  width:.65rem;height:1px;background:var(--rose-dust);
+}
+.buzz li:hover{color:var(--ink-soft)}
+.gap-line{
+  margin-top:2.2rem;font-family:var(--display);
+  font-size:clamp(1.26rem,1.05rem + 1.1vw,1.8rem);
+  line-height:1.36;font-weight:500;font-style:italic;
+  color:var(--pink);max-width:25ch;
+}
+
+/* ── what you get ── */
+.get{display:grid;gap:clamp(1rem,2vw,1.4rem)}
+@media(min-width:760px){.get{grid-template-columns:1fr 1fr}}
+.get-item{
+  background:var(--paper);
+  border:1px solid var(--rule-peach);border-radius:4px;
+  padding:clamp(1.9rem,3.6vw,2.8rem);
+}
+.get-item h3{
+  font-size:clamp(1.4rem,1.18rem + .95vw,1.85rem);
+  font-weight:600;font-style:italic;color:var(--teal-deep);margin-bottom:1.05rem;
+}
+:root[data-theme="dark"] .get-item h3{color:var(--teal)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .get-item h3{color:var(--teal)}}
+.get-item p{color:var(--ink-soft);font-size:1.02rem;line-height:1.68}
+
+/* ── who this isn't for ── */
+.nots{display:grid;border-top:1px solid var(--rule);margin-top:clamp(2.2rem,5vh,3.2rem)}
+.not{padding-block:clamp(1.4rem,3vh,2rem);border-bottom:1px solid var(--rule);display:grid;gap:.65rem}
+@media(min-width:820px){
+  .not{grid-template-columns:minmax(0,1.05fr) minmax(0,1.25fr);gap:clamp(2rem,5vw,4rem);align-items:baseline}
+}
+.not h3{font-size:clamp(1.1rem,1rem + .6vw,1.38rem);font-weight:500;line-height:1.32;color:var(--ink)}
+.not p{color:var(--ink-faint);font-size:1rem;line-height:1.64;margin:0}
+
+.honest{
+  margin-top:clamp(2.4rem,5vh,3.4rem);
+  padding:clamp(1.7rem,3.4vw,2.5rem);
+  background:var(--paper-peach);
+  border-left:3px solid var(--olive);
+  border-radius:0 4px 4px 0;
+  max-width:41rem;
+}
+.honest p:first-child{
+  font-family:var(--display);
+  font-size:clamp(1.14rem,1rem + .8vw,1.48rem);
+  font-weight:500;line-height:1.4;color:var(--ink);margin-bottom:1rem;
+}
+.honest p{color:var(--ink-soft);font-size:1.02rem;line-height:1.68}
+
+/* ── closing ── */
+.close{padding-block:clamp(5rem,12vh,8rem)}
+.close .wrap{text-align:center;max-width:52rem}
+.close-lines{display:grid;gap:.45rem}
+.close-lines p{
+  font-family:var(--display);
+  font-size:clamp(1.5rem,1.15rem + 1.9vw,2.5rem);
+  font-weight:500;line-height:1.24;margin:0;text-wrap:balance;color:#fff;
+}
+.close-lines p:nth-child(2){color:#ff8ab4;font-style:italic}
+.close-after{
+  margin-top:2rem;color:var(--peach);
+  font-size:1.08rem;font-style:italic;font-family:var(--display);
+}
+
+/* ── newsletter ── */
+.news{background:var(--paper-peach);padding-block:clamp(3.4rem,8vh,5.4rem)}
+.news-in{display:grid;gap:2rem}
+@media(min-width:880px){.news-in{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:4rem;align-items:center}}
+.news h2{font-size:clamp(1.55rem,1.25rem + 1.6vw,2.35rem);max-width:17ch}
+.news h2 em{font-style:italic;color:var(--pink)}
+.news p{color:var(--ink-soft);margin-top:.9rem;font-size:1.03rem}
+.news form{display:flex;gap:.7rem;flex-wrap:wrap}
+.news input{
+  flex:1 1 15rem;padding:1rem 1.15rem;
+  border:1px solid var(--rule-peach);border-radius:3px;
+  background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:1rem;font-weight:300;
+}
+.news input:focus{outline:none;border-color:var(--pink)}
+.news input::placeholder{color:var(--ink-faint)}
+
+/* ── footer ── */
+footer{background:var(--paper);border-top:1px solid var(--rule);padding-block:clamp(3rem,6vh,4.4rem);font-size:.93rem}
+.foot-grid{display:grid;gap:2.2rem}
+@media(min-width:820px){.foot-grid{grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr));gap:3rem}}
+.foot-tag{
+  font-family:var(--display);font-size:1.02rem;font-style:italic;
+  color:var(--plum);margin-top:.85rem;
+}
+.foot-h{
+  font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--olive);font-weight:500;margin-bottom:1rem;
+}
+.foot-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+.foot-list a{color:var(--ink-soft);text-decoration:none;transition:color .25s ease}
+.foot-list a:hover{color:var(--pink)}
+.foot-base{
+  margin-top:2.8rem;padding-top:1.6rem;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:.8rem 1.8rem;justify-content:space-between;
+  align-items:center;font-size:.83rem;color:var(--ink-faint);
+}
+.foot-base a{color:var(--ink-faint);text-decoration:none}
+.foot-base a:hover{color:var(--pink)}
+.foot-mark{display:inline-flex;align-items:baseline;gap:.5rem}
+
+/* ── reveal ── */
+.rise{opacity:0;transform:translateY(15px);transition:opacity .85s cubic-bezier(.2,.7,.3,1), transform .85s cubic-bezier(.2,.7,.3,1)}
+.rise.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rise{opacity:1;transform:none}
+  .cosmos::before{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">Shaia Astra<i>&#9829;</i></a>
+    <nav class="nav-links">
+      <a href="#doors">The Trap Doors</a>
+      <a href="#how">How It Works</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#keys">Get a Key</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero cosmos">
+    <div class="wrap">
+      <p class="eyebrow rise">The Four Keys</p>
+      <h1 class="rise">You've found everything <span class="pink">except yourself.</span></h1>
+      <div class="hero-sub rise">
+        <p>You know all the words. You've done the years. And the actual thing still hasn't moved.</p>
+        <p><strong>There are four places you feel it most.</strong> Each one has a trap door underneath it, and it has been sending you back for a very long time.</p>
+      </div>
+      <div class="hero-keys rise">
+        <span>Money</span><span>Love</span><span>Midlife</span><span>Identity</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ THE FOUR DOORS ══════════ -->
+  <section class="section" id="doors">
+    <div class="wrap">
+      <div class="doors-head">
+        <div class="rise">
+          <p class="kicker">Where the floor goes</p>
+          <h2>Four places you want to <span class="pink">move forward.</span></h2>
+        </div>
+        <p class="lede rise">Read these the way you'd read your own handwriting. The second paragraph in each is the sentence you say to yourself afterward.</p>
+      </div>
+
+      <div class="doors">
+        <article class="door rise">
+          <h3>Money.</h3>
+          <p>You've been patient. You've worked hard, you've done the next right thing, and you're still measuring how far away it is. What to do for it, how to get it to move.</p>
+          <p class="maybe">Maybe you need a different strategy. Maybe you need to quit the job. Maybe next year.</p>
+        </article>
+
+        <article class="door rise">
+          <h3>Love.</h3>
+          <p>You've shown up. For everyone and every thing, every time. Someone asks what you want and there's emptiness where answers should be.</p>
+          <p class="maybe">Maybe you're asking for too much. Maybe this is just what people are like.</p>
+        </article>
+
+        <article class="door rise">
+          <h3>Midlife.</h3>
+          <p>You've been through so much, and all of it has taught you something about yourself, what you've tried, what you've lived through, what you've done. But what now? Is this all there is?</p>
+          <p class="maybe">Maybe you need a hobby. Or to move. Maybe this is just what life looks like now.</p>
+        </article>
+
+        <article class="door rise">
+          <h3>Identity.</h3>
+          <p>You've been working on yourself for more years than you can count. You can describe who you are in a thousand ways, your chart, your type, your wounds, your stories, and none of it feels like you.</p>
+          <p class="maybe">Maybe this is just who you are. Maybe it's the wrong framework. Maybe you haven't found your thing yet.</p>
+        </article>
+      </div>
+
+      <div class="doors-foot rise">
+        <p>Each one has a trap door sending you back.</p>
+        <p>When you don't know it's there, you think you did something wrong.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ HER STORY ══════════ -->
+  <section class="section tint" id="about">
+    <div class="wrap story-grid">
+      <div class="story-aside rise">
+        <p class="kicker kicker-pink">What I found</p>
+        <h2>I fell into all four <span class="plum">trap doors.</span></h2>
+        <p class="lede">So many times.</p>
+      </div>
+
+      <div class="story-body rise">
+        <div class="triad">
+          <span>I wanted to know who I was.</span>
+          <span>I wanted to change my life.</span>
+          <span>I wanted to move forward.</span>
+        </div>
+
+        <p>And I kept hitting the same things, no matter how much work I did. I thought I was a failure. I kept seeing progress and then <span class="splat">SPLAT.</span></p>
+
+        <p>Losing myself to circumstances. Sobbing because things didn't pan out. Wondering what the hell I was doing wrong that I still didn't know.</p>
+
+        <p class="beat">I was so tired of getting knocked back down. I needed a way forward, and first I needed <span class="pink">the key to get out.</span></p>
+
+        <p>Here's what the trap door actually is. It happens whether you like it or not, and it shows up for a reason. It's an entry, an exit, a re-routing, or a safety check. A place you're going to go through.</p>
+
+        <p>If you don't know it's coming, you get swept away by it. If you don't know what to do about it, you get dropped on back.</p>
+
+        <p class="beat">Having the key means you can <span class="pink">do something about it.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ THE SEVEN TURNS ══════════ -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="rise" style="margin-bottom:clamp(2.8rem,6vh,4rem)">
+        <p class="kicker">How the key works</p>
+        <h2>Every key takes you through <span class="pink">seven turns of the lock.</span></h2>
+      </div>
+
+      <div class="turns">
+        <div class="turn rise">
+          <span class="turn-n">1</span>
+          <h3>First, you'll start to see it.</h3>
+          <p>And see how it's been impacting you.</p>
+        </div>
+        <div class="turn rise">
+          <span class="turn-n">2</span>
+          <h3>Next, you'll meet the trap door.</h3>
+          <p>And see what's been sending you back.</p>
+        </div>
+        <div class="turn rise">
+          <span class="turn-n">3</span>
+          <h3>Then, you'll learn to stop the loop.</h3>
+          <p>And break the hold it's had.</p>
+        </div>
+        <div class="turn rise">
+          <span class="turn-n">4</span>
+          <h3>You'll see you're not alone.</h3>
+          <p>And understand the bigger impact this trap door has had.</p>
+        </div>
+        <div class="turn rise">
+          <span class="turn-n">5</span>
+          <h3>You'll learn what to do.</h3>
+          <p>And how to take back your own authority.</p>
+        </div>
+        <div class="turn rise">
+          <span class="turn-n">6</span>
+          <h3>Then, you'll let it land.</h3>
+          <p>And know what to do if it happens again.</p>
+        </div>
+        <div class="turn rise">
+          <span class="turn-n">7</span>
+          <h3>And see how much you've changed.</h3>
+          <p>And what it looks like to finally have the key you've needed all along.</p>
+        </div>
+      </div>
+
+      <div class="turns-after rise">
+        <p class="pre">So when the floor goes again, because it will:</p>
+        <p>You know where you are.</p>
+        <p>You know it's temporary.</p>
+        <p>You know how to move through it.</p>
+        <p class="last">And how to not be sent back by it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ VOICES ══════════ -->
+  <section class="section cosmos">
+    <div class="wrap">
+      <p class="kicker rise" style="color:var(--peach);margin-bottom:2rem">From inside the work</p>
+      <div class="voices rise">
+        <figure class="voice">
+          <blockquote>"It's like vertigo. Everything is spinning outside of you while you're also spinning in a different direction. It's helped me balance, slow the spinning. The world around me is still going but I'm figuring out how to not get sucked into it."</blockquote>
+          <cite>JR &middot; RITUALS</cite>
+        </figure>
+        <figure class="voice">
+          <blockquote>"Usually I would be so much more lost and upset and feeling like shit. I can see it, I don't like it, but I'm not lost to it in the same way."</blockquote>
+          <cite>JR &middot; RITUALS</cite>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CHOOSE YOUR KEY ══════════ -->
+  <section class="section" id="keys">
+    <div class="wrap">
+      <div class="rise">
+        <p class="kicker kicker-pink">Choose your key</p>
+        <h2>See the trap door that's been <span class="pink">looping you back.</span></h2>
+      </div>
+
+      <div class="keys rise">
+        <a class="key" href="/money">
+          <div>
+            <h3>Money</h3>
+            <p class="door-name">Still measuring how far away it is.</p>
+          </div>
+          <span class="go">Get the key
+            <svg width="16" height="9" viewBox="0 0 16 9" fill="none" aria-hidden="true"><path d="M0 4.5h14M10.5 1 14 4.5 10.5 8" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </a>
+        <a class="key" href="/love">
+          <div>
+            <h3>Love</h3>
+            <p class="door-name">Emptiness where the answers should be.</p>
+          </div>
+          <span class="go">Get the key
+            <svg width="16" height="9" viewBox="0 0 16 9" fill="none" aria-hidden="true"><path d="M0 4.5h14M10.5 1 14 4.5 10.5 8" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </a>
+        <a class="key" href="/midlife">
+          <div>
+            <h3>Midlife</h3>
+            <p class="door-name">But what now? Is this all there is?</p>
+          </div>
+          <span class="go">Get the key
+            <svg width="16" height="9" viewBox="0 0 16 9" fill="none" aria-hidden="true"><path d="M0 4.5h14M10.5 1 14 4.5 10.5 8" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </a>
+        <a class="key" href="/identity">
+          <div>
+            <h3>Identity</h3>
+            <p class="door-name">A thousand ways to describe you. None of them you.</p>
+          </div>
+          <span class="go">Get the key
+            <svg width="16" height="9" viewBox="0 0 16 9" fill="none" aria-hidden="true"><path d="M0 4.5h14M10.5 1 14 4.5 10.5 8" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="bundle rise">
+        <div>
+          <h3>Get <em>all four keys.</em></h3>
+          <p>Money. Love. Midlife. Identity.</p>
+          <p><span class="plus">Plus</span> a bonus integration audio that brings it all together, where you'll meet your first ritual.</p>
+        </div>
+        <div class="bundle-cta">
+          <a class="btn" href="#" aria-disabled="true">Coming soon</a>
+          <p class="note">Save with the bundle</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WHAT IF / THE GAP ══════════ -->
+  <section class="section peachy">
+    <div class="wrap split">
+      <div class="rise">
+        <p class="kicker kicker-teal">What if you had the key</p>
+        <h2>A name for <span class="pink">the trap door.</span></h2>
+        <p class="lede">What's happening. Why it's happening. And a way to get through it.</p>
+        <p class="gap-line">How different could your life be?</p>
+      </div>
+
+      <div class="rise">
+        <p class="kicker kicker-pink">It's hard to trust, isn't it</p>
+        <h2 style="font-size:clamp(1.55rem,1.25rem + 1.6vw,2.2rem);margin-bottom:1.7rem">Everyone else is promising you all the buzzwords.</h2>
+        <ul class="buzz">
+          <li>Finally understand yourself.</li>
+          <li>Heal your patterns.</li>
+          <li>Step into your power.</li>
+          <li>Get unstuck.</li>
+          <li>Find your purpose.</li>
+        </ul>
+        <p class="gap-line">Every one of those promises the thing you want, and leaves out why you keep not getting it.</p>
+        <p style="margin-top:1.7rem;color:var(--ink-soft)">There's a reason that gap is empty. It took me nearly two decades in professional practice, and breaking my own life apart, to find it.</p>
+        <p style="color:var(--ink-soft)">I won't tell you that you'll suddenly magically have everything you want. I can tell you the four places it's all been falling through, and hand you the key for what to do about it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WHY I BUILT IT ══════════ -->
+  <section class="section">
+    <div class="wrap story-grid">
+      <div class="story-aside rise">
+        <p class="kicker">Why this exists</p>
+        <h2>I built this because <span class="plum">nothing else worked.</span></h2>
+      </div>
+      <div class="story-body rise">
+        <p>I've been a healer for seventeen years. I took the courses. I did the trainings. I sat in the containers. And I was disappointed, over and over, because nobody showed me how to integrate any of it.</p>
+        <p>I struggled. I suffered. I kept looking for something that would actually work for me.</p>
+        <p class="beat">This work is the first thing that changed my life measurably. <span class="pink">On the inside and on the outside.</span></p>
+        <p>And it happened because I had to go in, and find it myself. That's how this works too. I take you in. I hand you the keys, show you the doors, and help you find it yourself.</p>
+        <p class="beat">And get back in <span class="pink">your own authority.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WHAT YOU GET ══════════ -->
+  <section class="section tint">
+    <div class="wrap">
+      <div class="rise" style="margin-bottom:clamp(2.4rem,5vh,3.4rem)">
+        <p class="kicker kicker-teal">Here's what you get</p>
+        <h2>One key. <span class="pink">One healing session.</span></h2>
+        <p class="lede">Both audios yours to listen anytime.</p>
+      </div>
+      <div class="get rise">
+        <div class="get-item">
+          <h3>The key</h3>
+          <p>Names the trap door you're in. It tells you what's happening while it's happening, and what to do about it.</p>
+        </div>
+        <div class="get-item">
+          <h3>The healing session</h3>
+          <p>Helps you integrate. And helps you feel more ready for what's to come.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WHO THIS ISN'T FOR ══════════ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="rise">
+        <p class="kicker kicker-pink">Who this isn't for</p>
+        <h2>Three good reasons to <span class="plum">close this tab.</span></h2>
+      </div>
+
+      <div class="nots">
+        <div class="not rise">
+          <h3>Don't buy this if you want to be told what to do.</h3>
+          <p>There are no steps and no plan for your life in here. What you discover will help you.</p>
+        </div>
+        <div class="not rise">
+          <h3>Don't buy this if you want answers to come from outside you.</h3>
+          <p>A chart, a type, a result that hands you who you are. This does the exact opposite, on purpose.</p>
+        </div>
+        <div class="not rise">
+          <h3>Don't buy this if you want to stay who you are.</h3>
+          <p>The one who holds it together, or has it all figured out. This will have you questioning who you are under it all.</p>
+        </div>
+      </div>
+
+      <div class="honest rise">
+        <p>You've been disappointed before. I can't promise you won't be again.</p>
+        <p>What I can tell you is that every audio I make has helped me in my own life. Every key has been used. Every ritual has been honored. If it doesn't work for me, I don't send it out there.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CLOSING ══════════ -->
+  <section class="close cosmos">
+    <div class="wrap">
+      <div class="close-lines rise">
+        <p>You will know the key.</p>
+        <p>You will name the trap door.</p>
+        <p>You will know what to do to move through it.</p>
+      </div>
+      <p class="close-after rise">What you do with it next is up to you.</p>
+      <div class="rise" style="margin-top:2.6rem">
+        <a class="btn" href="#keys">Choose your key</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ NEWSLETTER ══════════ -->
+  <section class="news">
+    <div class="wrap news-in">
+      <div class="rise">
+        <h2>It's time for <em>new beginnings.</em></h2>
+        <p>Join my newsletter for a free healing session, sent direct to your inbox.</p>
+      </div>
+      <form class="rise" onsubmit="return false">
+        <label for="email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email</label>
+        <input id="email" type="email" placeholder="Your email" autocomplete="email">
+        <button class="btn btn-teal" type="submit">Join now</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="/">Shaia Astra<i>&#9829;</i></a>
+        <p class="foot-tag">Find Yourself &middot; Meet Yourself &middot; Know Yourself &middot; Be Yourself</p>
+      </div>
+      <div>
+        <p class="foot-h">The Work</p>
+        <ul class="foot-list">
+          <li><a href="/start-here">Start Here</a></li>
+          <li><a href="/level-one">Level One</a></li>
+          <li><a href="/level-two">Level Two</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-h">More</p>
+        <ul class="foot-list">
+          <li><a href="/the-writings">The Writings</a></li>
+          <li><a href="/podcast">The Shaia Stellium Podcast</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span class="foot-mark">&#127766;<span>RITUALS by SHAIA &middot; &copy; Shaia Astra / Healing Forward 2009&ndash;26</span></span>
+      <span><a href="/policies">Policies</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/privacy">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.rise');
+  if(!('IntersectionObserver' in window) || !window.requestAnimationFrame){
+    els.forEach(function(e){e.classList.add('in')});
+    return;
+  }
+  els.forEach(function(el){
+    var sibs = Array.prototype.slice.call(el.parentElement ? el.parentElement.children : [])
+      .filter(function(n){return n.classList && n.classList.contains('rise')});
+    var i = sibs.indexOf(el);
+    el.style.transitionDelay = (i > 0 ? Math.min(i,5)*65 : 0) + 'ms';
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:.06});
+  els.forEach(function(e){io.observe(e)});
+
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.querySelectorAll('.rise:not(.in)').forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if(r.top < window.innerHeight && r.bottom > 0){ el.classList.add('in'); }
+      });
+    }, 100);
+  });
+})();
+
+(function(){
+  var nav = document.getElementById('nav');
+  var onScroll = function(){
+    if(window.scrollY > 12){ nav.classList.add('stuck'); } else { nav.classList.remove('stuck'); }
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();
+</script>
