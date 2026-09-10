@@ -1,66 +1,93 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta name="googlebot" content="noindex, nofollow">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#190915">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#fbf7f4">
 <title>The Four Keys · Shaia Astra</title>
 <meta name="description" content="You've found everything except yourself. Four places you feel it most, each with a trap door underneath. A key for each one.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<script>document.documentElement.classList.replace('no-js','js')</script>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<script>document.documentElement.className='js'</script>
 
 <style>
 /* ─────────────────────────────────────────────────────────────
-   Shaia Astra · The Four Keys · v3
+   Shaia Astra · The Four Keys · v4 · daylight
 
-   One night. Four floors. Seven turns of a lock. One key.
+   Her palette, exactly as supplied, on a light ground.
 
-   Ground is her plum-black, not neutral navy. The four brand
-   colours are not accents here; each one is the floor of a door.
-   The photographs are the three astrophotographs already running
-   on shaiaastra.com. Type is Gloock (a fat 70s paperback face) over
-   Alegreya (a book face, for reading in bed at 11pm), with Alegreya
-   Sans only for buttons and small labels.
+     Plum       #9b2e6f      Peacock  #00BFAD   (buttons, links)
+     Grapefruit #ff5b62      Blue     #016cb0   (headers alt)
+     Cranberry  #ea3077      Olive    #798424   (headers alt)
+     Peaches    #ffa09c      Green    #59924e   (rare)
+     Text gray  #2f363c
+
+   Type is Lora, with Avenir Next as the sans for buttons and
+   labels.
+
+   The page is the floor you are standing on: paper, gray ink.
+   The four doors are the only saturated things on it, and you
+   fall through them. Every text pair below was computed, not
+   eyeballed; the ratio is in the comment beside it.
    ───────────────────────────────────────────────────────────── */
 :root{
-  --night:      oklch(0.17 0.035 335);
-  --night-2:    oklch(0.21 0.04  335);
+  /* --- her colours, unaltered --- */
+  --plum:       #9b2e6f;
+  --grapefruit: #ff5b62;
+  --cranberry:  #ea3077;
+  --peaches:    #ffa09c;
+  --peacock:    #00BFAD;
+  --blue:       #016cb0;
+  --olive:      #798424;
+  --green:      #59924e;
+  --gray:       #2f363c;
 
-  --text:       oklch(0.94 0.02  45);
-  --text-soft:  oklch(0.80 0.035 40);
-  --text-dim:   oklch(0.68 0.03  40);
+  /* --- ground --- */
+  --paper:     #fbf7f4;   /* warm white, off her peaches */
+  --paper-2:   #f4eeea;   /* banded sections             */
+  --plum-deep: #55193d;   /* 55% plum: the close + footer */
 
-  --pink:        oklch(0.63 0.23 358);   /* her #ea3077, display only     */
-  --pink-bright: oklch(0.74 0.19 358);   /* small text and links on night */
-  --peach:       oklch(0.87 0.045 40);
+  /* --- ink on paper --- */
+  --ink:       var(--gray);            /* 11.50:1 */
+  --ink-soft:  #5b6570;                /*  5.57:1 */
+  --ink-dim:   #6f7883;                /*  4.20:1, meta text and rules   */
 
-  --floor-money:        oklch(0.47 0.11 115);
-  --floor-money-ink:    var(--text);
-  --floor-love:         oklch(0.56 0.22 358);
-  --floor-love-ink:     #fff;
-  --floor-midlife:      oklch(0.40 0.15 345);
-  --floor-midlife-ink:  #fff;
-  --floor-identity:     oklch(0.76 0.12 183);
-  --floor-identity-ink: var(--night);
+  /* --- her colours where they must carry small text ---
+     Peacock and Grapefruit cannot hold body text on paper
+     (2.18:1 and 2.85:1). Same hue, darkened until each clears
+     4.5:1 on BOTH grounds (paper and the banded paper-2). */
+  --peacock-ink:    #007a6f;  /* 4.91 on paper . 4.55 on paper-2 */
+  --cranberry-ink:  #c92966;  /* 4.94 . 4.57 */
+  --olive-ink:      #68721f;  /* 4.91 . 4.55 */
+  --peaches-ink:    #965e5c;  /* 4.86 . 4.51 */
 
-  /* the same four, as text on night */
-  --money-text:    oklch(0.82 0.09 115);
-  --love-text:     oklch(0.74 0.19 358);
-  --midlife-text:  oklch(0.80 0.11 345);
-  --identity-text: oklch(0.85 0.10 183);
+  /* --- the four floors, and the correct ink for each ---
+     Olive and Cranberry at full strength only reach 4.09 and 4.05
+     against white: enough for a display word, not for the body copy
+     that sits on the same floor. Both are taken to 87% of her hex,
+     which is the same colour a shade deeper, and clears 4.5. */
+  --floor-money:        #69731f;            --floor-money-ink:    #fff;   /* 5.16 */
+  --floor-love:         #cc2a68;            --floor-love-ink:     #fff;   /* 5.12 */
+  --floor-midlife:      var(--plum);        --floor-midlife-ink:  #fff;   /* 6.97 */
+  --floor-identity:     var(--peaches);     --floor-identity-ink: var(--gray); /* 6.28 */
 
-  --hair:      oklch(0.94 0.02 45 / .16);
-  --hair-soft: oklch(0.94 0.02 45 / .09);
+  /* the same four as text on paper */
+  --money-text:    var(--olive-ink);
+  --love-text:     var(--cranberry-ink);
+  --midlife-text:  var(--plum);            /* 6.54 */
+  --identity-text: var(--peaches-ink);
 
-  --display: "Gloock","Cooper Black",Georgia,serif;
-  --serif:   "Alegreya",Georgia,"Times New Roman",serif;
-  --sans:    "Alegreya Sans","Avenir Next","Avenir",system-ui,sans-serif;
+  --hair:      #2f363c26;
+  --hair-soft: #2f363c14;
+
+  --display: "Lora",Georgia,"Times New Roman",serif;
+  --serif:   "Lora",Georgia,"Times New Roman",serif;
+  --sans:    "Avenir Next","Avenir","Segoe UI",system-ui,-apple-system,sans-serif;
 
   --measure: 36rem;
   --wrap: 82rem;
@@ -80,15 +107,15 @@ html{
   -webkit-text-size-adjust:100%;
   scroll-behavior:smooth;
   overflow-x:clip;
-  background:var(--night);
+  background:var(--paper);
 }
 body{
   margin:0;
-  background:var(--night);
-  color:var(--text);
+  background:var(--paper);
+  color:var(--ink);
   font-family:var(--serif);
-  font-size:clamp(1.1rem, 1.04rem + .3vw, 1.22rem);
-  line-height:1.6;
+  font-size:clamp(1.08rem, 1.02rem + .3vw, 1.19rem);
+  line-height:1.65;
   overflow-x:clip;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
@@ -96,30 +123,30 @@ body{
 img{max-width:100%;display:block}
 h1,h2,h3{
   font-family:var(--display);
-  font-weight:400;
+  font-weight:600;
   margin:0;
   text-wrap:balance;
-  letter-spacing:-.005em;
+  letter-spacing:-.015em;
 }
 p{margin:0 0 1.1em}
 p:last-child{margin-bottom:0}
 a{color:inherit}
-::selection{background:var(--pink);color:#fff}
+::selection{background:var(--peaches);color:var(--gray)}
 
 .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter);position:relative}
-.pink{color:var(--pink)}
+.accent{color:var(--cranberry-ink)}
 .lede{
-  font-size:clamp(1.25rem, 1.1rem + .7vw, 1.55rem);
-  line-height:1.45;color:var(--text-soft);max-width:var(--measure);
+  font-size:clamp(1.22rem, 1.1rem + .65vw, 1.5rem);
+  line-height:1.5;color:var(--ink-soft);max-width:var(--measure);
   text-wrap:pretty;
 }
 
 .skip{
   position:fixed;top:-100%;left:1rem;z-index:var(--z-skip);
-  background:var(--pink-bright);color:var(--night);
+  background:var(--peacock);color:var(--gray);
   font-family:var(--sans);font-weight:700;padding:.7rem 1.1rem;
 }
-.skip:focus{top:1rem;outline:2px solid var(--text);outline-offset:2px}
+.skip:focus{top:1rem;outline:2px solid var(--gray);outline-offset:2px}
 
 /* ── top line ─────────────────────────────────────────────── */
 .top{
@@ -129,88 +156,88 @@ a{color:inherit}
   font-family:var(--sans);font-size:1rem;
 }
 .brand{
-  text-decoration:none;color:var(--text);
+  text-decoration:none;color:var(--ink);
   display:inline-flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;
 }
-.brand b{font-family:var(--display);font-weight:400;font-size:1.3rem;letter-spacing:0}
-.brand span{color:var(--text-soft)}
-.brand span::before{content:"/";margin-right:.75rem;color:var(--text-dim)}
+.brand b{font-family:var(--display);font-weight:600;font-size:1.28rem;letter-spacing:-.01em}
+.brand span{color:var(--ink-soft)}
+.brand span::before{content:"/";margin-right:.75rem;color:var(--ink-dim)}
 .top-link{
-  color:var(--text);text-decoration:none;font-weight:500;
+  color:var(--peacock-ink);text-decoration:none;font-weight:600;
   display:inline-flex;align-items:center;gap:.5rem;
-  padding-bottom:.15rem;border-bottom:1px solid var(--hair);
-  transition:border-color .3s var(--ease-soft),color .3s var(--ease-soft);
+  padding-bottom:.15rem;border-bottom:1px solid currentColor;
+  transition:color .3s var(--ease-soft);
   white-space:nowrap;
 }
-.top-link:hover{color:var(--pink-bright);border-color:var(--pink-bright)}
+.top-link:hover{color:var(--cranberry-ink)}
 .arrow{width:1em;height:.6em;flex:none;transition:transform .5s var(--ease)}
 a:hover .arrow{transform:translateX(.25em)}
 
 /* ── hero ─────────────────────────────────────────────────── */
+/* The page opens on paper, not on a photograph. Her sky is a
+   band beneath the headline, so the page reads as the floor you
+   are standing on with the night visible below it. */
 .hero{
-  position:relative;isolation:isolate;
+  position:relative;
   min-height:100dvh;
-  display:grid;grid-template-rows:1fr auto;
-  overflow:hidden;
-}
-.hero-img{
-  position:absolute;inset:0;z-index:-2;
-  width:100%;height:100%;object-fit:cover;object-position:center 45%;
-  filter:saturate(.92) brightness(.9);
-  transform:scale(1.06);
-}
-.js .hero-img{animation:kb 40s var(--ease-soft) both}
-@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1.02)}}
-.hero::before{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:var(--night);opacity:.42;
+  display:grid;grid-template-rows:1fr auto auto;
+  background:var(--paper);
 }
 .hero-in{
-  align-self:end;
-  padding-top:clamp(9rem, 22vh, 14rem);
-  padding-bottom:clamp(3rem, 7vh, 5rem);
+  align-self:center;
+  padding-top:clamp(8rem, 20vh, 12rem);
+  padding-bottom:clamp(2.5rem, 6vh, 4rem);
   display:grid;gap:2.2rem;
 }
 @media (min-width:980px){
   .hero-in{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:end;gap:4rem}
 }
 h1{
-  font-size:clamp(2.7rem, 1.5rem + 5.4vw, 5.9rem);
-  line-height:.98;
+  font-size:clamp(2.6rem, 1.5rem + 5.2vw, 5.6rem);
+  line-height:1.02;
   max-width:11ch;
+  font-weight:600;
 }
-.ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
 .ln > span{display:block}
 .js .ln > span{animation:rise 1.3s var(--ease) both}
 .js .ln:nth-child(2) > span{animation-delay:.12s}
 .js .ln:nth-child(3) > span{animation-delay:.26s}
 @keyframes rise{from{transform:translateY(108%)}to{transform:none}}
 .hero-sub{
-  max-width:30rem;font-size:clamp(1.12rem, 1.02rem + .45vw, 1.35rem);line-height:1.5;
-  color:var(--text);text-wrap:pretty;
+  max-width:30rem;font-size:clamp(1.1rem, 1.02rem + .45vw, 1.32rem);line-height:1.55;
+  color:var(--ink);text-wrap:pretty;
 }
-.hero-sub p:first-child{color:var(--text-soft)}
+.hero-sub p:first-child{color:var(--ink-soft)}
 .js .hero-sub{animation:fade 1.4s var(--ease) .55s both}
 @keyframes fade{from{opacity:0;transform:translateY(.6rem)}to{opacity:1;transform:none}}
+
+/* the sky: her photograph as a band under the headline */
+.hero-sky{
+  position:relative;height:clamp(7rem, 16vh, 12rem);overflow:hidden;
+}
+.hero-sky img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.js .hero-sky img{animation:kb 40s var(--ease-soft) both}
+@keyframes kb{from{transform:scale(1.1)}to{transform:scale(1.01)}}
 
 /* the floor: the four doors seen from above */
 .floor{
   display:grid;grid-template-columns:repeat(4,1fr);
-  font-family:var(--sans);font-weight:700;font-size:clamp(.9rem, .8rem + .5vw, 1.15rem);
+  font-family:var(--sans);font-weight:600;font-size:clamp(.9rem, .8rem + .5vw, 1.12rem);
   letter-spacing:.01em;
 }
 .floor a{
-  --f:var(--night-2);--fi:var(--text);
+  --f:var(--paper-2);--fi:var(--ink);
   background:var(--f);color:var(--fi);text-decoration:none;
   padding:1.1rem var(--gutter) 1.1rem clamp(.9rem, 2.5vw, 1.6rem);
   display:flex;align-items:center;justify-content:space-between;gap:.5rem;
-  min-height:3.6rem;
+  min-height:3.7rem;
   transition:filter .35s var(--ease-soft);
 }
 .floor a .arrow{transform:rotate(90deg);opacity:0;transition:opacity .35s,transform .5s var(--ease)}
-.floor a:hover{filter:brightness(1.08)}
+.floor a:hover{filter:brightness(.94)}
 .floor a:hover .arrow{opacity:1;transform:rotate(90deg) translateX(.2em)}
-.floor a:focus-visible{outline:3px solid var(--text);outline-offset:-3px}
+.floor a:focus-visible{outline:3px solid var(--gray);outline-offset:-3px}
 @media (max-width:560px){
   .floor a{padding-inline:.9rem}
   .floor a .arrow{display:none}
@@ -219,25 +246,36 @@ h1{
 /* ── the four doors: sticky floors that stack ────────────── */
 .doors{position:relative}
 .door{
-  --f:var(--night-2);--fi:var(--text);
+  --f:var(--paper-2);--fi:var(--ink);
   position:sticky;top:0;
   min-height:100dvh;
   background:var(--f);color:var(--fi);
   display:grid;align-items:center;
   overflow:clip;
 }
-/* her photography, tinted in the floor colour: grayscale photo under a flat wash */
-.door-img{
-  position:absolute;inset:0;z-index:0;
-  width:100%;height:100%;object-fit:cover;
-  filter:grayscale(1) contrast(1.05);
-}
-.door::before{
+/* Her photography as a print in the floor colour.
+   The floor is painted flat and opaque first; the photograph sits
+   ON TOP of it in soft-light at low opacity, so it can only texture
+   the colour, never lighten the ground under the text. That keeps
+   the measured contrast identical to the flat floor value. */
+.door::after{
   content:"";position:absolute;inset:0;z-index:1;
-  background:var(--f);opacity:var(--tint, .8);
+  background:var(--f);
+}
+.door-img{
+  position:absolute;inset:0;z-index:2;
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.1);
+  /* The print may only ever move the floor AWAY from its ink.
+     Three doors carry white text, so their photograph multiplies
+     (darkens only). Identity carries dark ink on peaches, so its
+     photograph screens (lightens only). Either way the flat floor
+     value measured above is a true worst case. */
+  mix-blend-mode:var(--print, multiply);
+  opacity:var(--tint, .5);
 }
 .door-in{
-  position:relative;z-index:2;
+  position:relative;z-index:3;
   width:100%;
   padding-block:clamp(5rem, 12vh, 8rem);
   display:grid;gap:clamp(1.6rem, 4vh, 3rem);
@@ -256,13 +294,14 @@ h1{
   .door-text{grid-column:6 / 12}
 }
 .door-name{
-  font-size:clamp(3.6rem, 2rem + 8vw, 6rem);
-  line-height:.9;
-  letter-spacing:-.01em;
+  font-size:clamp(3.4rem, 2rem + 7.6vw, 5.6rem);
+  line-height:.95;
+  letter-spacing:-.02em;
+  font-weight:600;
 }
 .door-text{
   max-width:34rem;
-  font-size:clamp(1.15rem, 1.05rem + .5vw, 1.4rem);line-height:1.5;
+  font-size:clamp(1.12rem, 1.04rem + .5vw, 1.34rem);line-height:1.55;
   text-wrap:pretty;
 }
 .door-text p{margin-bottom:1.1em}
@@ -270,24 +309,21 @@ h1{
   font-style:italic;
   font-size:1.05em;
   padding-left:1.1em;text-indent:-1.1em;
-}
-.door-index{
-  font-family:var(--sans);font-size:.95rem;font-weight:500;
-  opacity:.7;margin-bottom:1.2rem;
+  opacity:.92;
 }
 
 .after-doors{
   position:relative;z-index:1;
-  background:var(--night);
+  background:var(--paper);
   padding-block:var(--sec);
 }
 .after-doors p{
-  font-family:var(--display);
-  font-size:clamp(1.6rem, 1.2rem + 2.2vw, 3rem);
-  line-height:1.12;max-width:22ch;margin:0;
-  text-wrap:balance;
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(1.6rem, 1.2rem + 2.2vw, 2.9rem);
+  line-height:1.16;max-width:22ch;margin:0;
+  text-wrap:balance;letter-spacing:-.02em;
 }
-.after-doors p + p{margin-top:.6em;color:var(--pink);margin-left:clamp(0rem, 8vw, 9rem)}
+.after-doors p + p{margin-top:.6em;color:var(--cranberry-ink);margin-left:clamp(0rem, 8vw, 9rem)}
 
 /* ── reading sections (her story, why this exists) ───────── */
 .read{padding-block:var(--sec)}
@@ -297,38 +333,39 @@ h1{
   .read-head{position:sticky;top:clamp(2rem, 8vh, 5rem)}
 }
 h2{
-  font-size:clamp(2.1rem, 1.4rem + 3vw, 3.9rem);
-  line-height:1.02;
+  font-size:clamp(2rem, 1.4rem + 2.8vw, 3.6rem);
+  line-height:1.08;
+  letter-spacing:-.022em;
 }
 .read-head h2{max-width:12ch}
 .read-sub{
-  margin-top:1.2rem;font-size:1.5rem;font-style:italic;color:var(--text-soft);
+  margin-top:1.2rem;font-size:1.45rem;font-style:italic;color:var(--ink-soft);
 }
-.read-body{max-width:var(--measure);color:var(--text)}
+.read-body{max-width:var(--measure);color:var(--ink)}
 .read-body p{margin-bottom:1.3em;text-wrap:pretty}
 .triad{
-  font-style:italic;font-size:1.2em;line-height:1.5;
-  color:var(--text-soft);
+  font-style:italic;font-size:1.18em;line-height:1.55;
+  color:var(--ink-soft);
 }
 .beat{
-  font-family:var(--display);
-  font-size:clamp(1.45rem, 1.2rem + 1.1vw, 2.1rem);
-  line-height:1.2;color:var(--text);
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(1.4rem, 1.2rem + 1.05vw, 2rem);
+  line-height:1.25;color:var(--ink);
   margin-block:1.6em;
-  text-wrap:balance;
+  text-wrap:balance;letter-spacing:-.018em;
 }
-.beat em{font-style:normal;color:var(--pink)}
+.beat em{font-style:normal;color:var(--cranberry-ink)}
 .splat{
-  font-family:var(--display);
-  font-size:clamp(3.4rem, 2.4rem + 6vw, 6rem);
-  line-height:.9;color:var(--pink);
-  margin:.35em 0 .55em -.04em;
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(3.2rem, 2.4rem + 5.6vw, 5.6rem);
+  line-height:.95;color:var(--cranberry);
+  margin:.35em 0 .55em -.03em;
   transform:rotate(-4deg);transform-origin:0 100%;
-  display:inline-block;
+  display:inline-block;letter-spacing:-.03em;
 }
 
 /* ── seven turns ──────────────────────────────────────────── */
-.turns-sec{padding-block:var(--sec-tight) var(--sec);background:var(--night-2)}
+.turns-sec{padding-block:var(--sec-tight) var(--sec);background:var(--paper-2)}
 .turns-sec h2{max-width:16ch;margin-bottom:clamp(3rem, 7vh, 5rem)}
 .turns-grid{display:grid;gap:2rem}
 @media (min-width:900px){
@@ -339,9 +376,7 @@ h2{
   display:grid;justify-items:center;gap:1rem;
   z-index:1;
 }
-.lock{
-  width:min(100%, 22rem);height:auto;
-}
+.lock{width:min(100%, 22rem);height:auto}
 @media (max-width:899px){
   .lock-wrap{
     position:sticky;top:.75rem;
@@ -349,7 +384,7 @@ h2{
     margin-bottom:-4.5rem;
     pointer-events:none;
   }
-  .lock{width:5.25rem;filter:drop-shadow(0 0 18px var(--night-2)) drop-shadow(0 0 8px var(--night-2))}
+  .lock{width:5.25rem;filter:drop-shadow(0 0 16px var(--paper-2)) drop-shadow(0 0 7px var(--paper-2))}
   .lock-count{display:none}
 }
 .lock .ring{fill:none;stroke:var(--hair);stroke-width:1.5}
@@ -358,15 +393,15 @@ h2{
   transform-origin:120px 120px;
   transition:transform 1.1s var(--ease);
 }
-.lock .tick{stroke:var(--text-dim);stroke-width:2;stroke-linecap:round;transition:stroke .5s var(--ease-soft)}
-.lock .tick.on{stroke:var(--pink-bright);stroke-width:3}
-.lock .pointer{fill:var(--text)}
-.lock .hole{fill:var(--night);stroke:var(--text-dim);stroke-width:1.5;transition:fill .8s var(--ease-soft),stroke .8s var(--ease-soft)}
-.lock.open .hole{fill:var(--pink);stroke:var(--pink)}
+.lock .tick{stroke:var(--ink-dim);stroke-width:2;stroke-linecap:round;transition:stroke .5s var(--ease-soft)}
+.lock .tick.on{stroke:var(--cranberry);stroke-width:3}
+.lock .pointer{fill:var(--ink)}
+.lock .hole{fill:var(--paper);stroke:var(--ink-dim);stroke-width:1.5;transition:fill .8s var(--ease-soft),stroke .8s var(--ease-soft)}
+.lock.open .hole{fill:var(--cranberry);stroke:var(--cranberry)}
 .lock-count{
-  font-family:var(--sans);font-size:1rem;color:var(--text-dim);font-variant-numeric:tabular-nums;
+  font-family:var(--sans);font-size:1rem;color:var(--ink-soft);font-variant-numeric:tabular-nums;
 }
-.lock-count b{color:var(--text);font-weight:500;font-size:1.3em}
+.lock-count b{color:var(--ink);font-weight:600;font-size:1.3em}
 
 .turns{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
 .turn{
@@ -376,63 +411,65 @@ h2{
   border-bottom:1px solid var(--hair);
   align-items:baseline;
   transition:color .5s var(--ease-soft);
-  color:var(--text-dim);
+  color:var(--ink-soft);
 }
-.turn.on{color:var(--text)}
+.turn.on{color:var(--ink)}
 .turn-n{
-  font-family:var(--display);font-size:clamp(1.9rem, 1.5rem + 1.6vw, 2.8rem);line-height:1;
-  color:var(--text-dim);transition:color .5s var(--ease-soft);
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(1.8rem, 1.5rem + 1.5vw, 2.6rem);line-height:1;
+  color:var(--ink-dim);transition:color .5s var(--ease-soft);
 }
-.turn.on .turn-n{color:var(--pink-bright)}
+.turn.on .turn-n{color:var(--cranberry-ink)}
 .turn h3{
-  font-family:var(--serif);font-weight:500;
-  font-size:clamp(1.3rem, 1.15rem + .8vw, 1.8rem);line-height:1.25;
-  grid-column:2;
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(1.28rem, 1.15rem + .75vw, 1.75rem);line-height:1.3;
+  grid-column:2;letter-spacing:-.015em;
 }
-.turn p{grid-column:2;margin:.35em 0 0;font-size:1.05rem;line-height:1.5;font-style:italic;opacity:.85}
+.turn p{grid-column:2;margin:.35em 0 0;font-size:1.03rem;line-height:1.5;font-style:italic;color:var(--ink-soft)}
 
 .turns-after{
   margin-top:clamp(3rem, 7vh, 5rem);max-width:40rem;
   margin-left:auto;
 }
 @media (min-width:900px){.turns-after{margin-left:calc(5 / 12 * 100% + clamp(2rem, 6vw, 6rem) * 5 / 12)}}
-.turns-after .pre{color:var(--text-soft);margin-bottom:1rem;font-style:italic;font-size:1.15em}
+.turns-after .pre{color:var(--ink-soft);margin-bottom:1rem;font-style:italic;font-size:1.15em}
 .turns-after p{
-  font-family:var(--display);
-  font-size:clamp(1.35rem, 1.1rem + 1.2vw, 2.1rem);line-height:1.2;margin:0 0 .25em;
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(1.3rem, 1.1rem + 1.15vw, 2rem);line-height:1.25;margin:0 0 .25em;
+  letter-spacing:-.018em;
 }
-.turns-after .last{color:var(--pink);margin-top:.4em}
+.turns-after .last{color:var(--cranberry-ink);margin-top:.4em}
 
 /* ── voices ───────────────────────────────────────────────── */
+/* On the light page the quotes sit on plum, not on a photograph.
+   White on #9b2e6f is 6.97:1. */
 .voices{
-  position:relative;isolation:isolate;overflow:hidden;
+  position:relative;overflow:hidden;
   padding-block:var(--sec);
+  background:var(--plum);color:#fff;
 }
-.bg-img{
-  position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;
-  filter:saturate(.85);
+.voices .bg-img{
+  position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1);opacity:.16;
 }
-.voices::before{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:var(--night);opacity:.68;
-}
+.voices .wrap{position:relative;z-index:1}
 .small-h{
   font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:1.35rem;color:var(--text-soft);margin-bottom:clamp(2.5rem, 6vh, 4rem);
+  font-size:1.32rem;color:#fff;margin-bottom:clamp(2.5rem, 6vh, 4rem);
 }
 .voice{margin:0;max-width:36rem}
 .voice + .voice{margin-top:clamp(2.5rem, 6vh, 4.5rem);margin-left:auto;max-width:32rem}
 .voice blockquote{
   margin:0;
-  font-size:clamp(1.35rem, 1.15rem + 1.1vw, 2rem);line-height:1.35;
+  font-size:clamp(1.3rem, 1.15rem + 1vw, 1.9rem);line-height:1.4;
   text-wrap:pretty;
   padding-left:1.4rem;text-indent:-.5em;
-  border-left:1px solid var(--hair);
+  border-left:1px solid #ffffff40;
 }
 .voice blockquote p{margin:0}
 .voice figcaption{
   margin-top:1rem;padding-left:1.4rem;
-  font-family:var(--sans);font-size:1rem;color:var(--text-soft);
+  font-family:var(--sans);font-size:1rem;color:#ffd9d6;
 }
 
 /* ── the keyring ──────────────────────────────────────────── */
@@ -444,14 +481,14 @@ h2{
   border-top:1px solid var(--hair);
 }
 .key{
-  --f:var(--night-2);--fi:var(--text);
+  --f:var(--paper-2);--fi:var(--ink);
   position:relative;isolation:isolate;
   display:grid;grid-template-columns:minmax(0,1fr);
   gap:.5rem 2rem;
   padding:clamp(1.6rem, 3.5vh, 2.4rem) clamp(1rem, 2.5vw, 2rem);
   margin-inline:calc(clamp(1rem, 2.5vw, 2rem) * -1);
   border-bottom:1px solid var(--hair);
-  text-decoration:none;color:var(--text);
+  text-decoration:none;color:var(--ink);
   transition:color .45s var(--ease-soft);
 }
 @media (min-width:760px){
@@ -467,70 +504,66 @@ h2{
 .key:where(a):hover::before,.key:where(a):focus-visible::before{transform:scaleX(1)}
 .key:where(a):focus-visible .key-go{text-decoration:underline;text-underline-offset:.2em}
 .key-name{
-  font-family:var(--display);font-size:clamp(2rem, 1.5rem + 2.2vw, 3.3rem);line-height:1;
-  color:var(--ft, var(--text));transition:color .45s var(--ease-soft);
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(1.9rem, 1.5rem + 2vw, 3rem);line-height:1.05;
+  color:var(--ft, var(--ink));transition:color .45s var(--ease-soft);
+  letter-spacing:-.022em;
 }
 .key:where(a):hover .key-name,.key:where(a):focus-visible .key-name{color:var(--fi)}
-.key-line{font-style:italic;font-size:1.15rem;line-height:1.4;opacity:.85;text-wrap:pretty}
+.key-line{font-style:italic;font-size:1.12rem;line-height:1.45;color:inherit;opacity:.88;text-wrap:pretty}
 .key-go{
-  font-family:var(--sans);font-weight:700;font-size:1rem;
+  font-family:var(--sans);font-weight:600;font-size:1rem;
   display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;
   justify-self:start;
 }
 @media (min-width:760px){.key-go{justify-self:end}}
-.key-bundle{color:var(--text-soft)}
-.key-bundle .key-name{color:var(--text)}
-.key-bundle .key-go{color:var(--text-dim);font-weight:500}
-.key-bundle b{color:var(--text);font-weight:500}
+.key-bundle{color:var(--ink-soft)}
+.key-bundle .key-name{color:var(--ink)}
+.key-bundle .key-go{color:var(--ink-dim);font-weight:500}
+.key-bundle b{color:var(--ink);font-weight:600}
 
 /* ── the gap ──────────────────────────────────────────────── */
-.gap-sec{padding-block:var(--sec);background:var(--night-2)}
+.gap-sec{padding-block:var(--sec);background:var(--paper-2)}
 .split{display:grid;gap:3rem}
 @media (min-width:960px){
   .split{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(3rem, 8vw, 8rem);align-items:start}
   .split > :first-child{position:sticky;top:clamp(2rem, 8vh, 5rem)}
 }
 .gap-line{
-  font-family:var(--display);
-  font-size:clamp(1.4rem, 1.15rem + 1.1vw, 2.1rem);line-height:1.2;
-  color:var(--pink);margin-top:1.4em;max-width:24ch;
-  text-wrap:balance;
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(1.35rem, 1.15rem + 1.05vw, 2rem);line-height:1.25;
+  color:var(--plum);margin-top:1.4em;max-width:24ch;
+  text-wrap:balance;letter-spacing:-.018em;
 }
 .buzz-col h3{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:clamp(1.5rem, 1.25rem + 1.2vw, 2.2rem);line-height:1.25;
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(1.45rem, 1.25rem + 1.1vw, 2.1rem);line-height:1.3;
   margin-bottom:.6em;
 }
-.buzz-col > p{color:var(--text-soft);max-width:var(--measure)}
+.buzz-col > p{color:var(--ink-soft);max-width:var(--measure)}
 .buzz{
   list-style:none;margin:1.6rem 0 0;padding:0;
   display:flex;flex-wrap:wrap;gap:.6rem .8rem;
 }
 .buzz li{
-  font-family:var(--sans);font-size:1rem;color:var(--text-dim);
-  border:1px solid var(--hair);padding:.45rem .9rem;
+  font-family:var(--sans);font-size:1rem;color:var(--ink-soft);
+  border:1px solid var(--hair);padding:.45rem .9rem;background:var(--paper);
 }
 .buzz-col .gap-line{max-width:30ch}
-.buzz-col .after{margin-top:1.6rem;color:var(--text-soft);max-width:var(--measure)}
+.buzz-col .after{margin-top:1.6rem;color:var(--ink-soft);max-width:var(--measure)}
 
 /* ── what you get ─────────────────────────────────────────── */
 .get-sec{padding-block:var(--sec-tight) var(--sec)}
 .get-sec .lede{margin-top:1rem}
-.get{
-  margin-top:clamp(2.5rem, 6vh, 4rem);
-  display:grid;gap:2.5rem;
-}
+.get{margin-top:clamp(2.5rem, 6vh, 4rem);display:grid;gap:2.5rem}
 @media (min-width:760px){.get{grid-template-columns:1fr 1fr;gap:clamp(2.5rem, 6vw, 6rem)}}
-.get > div{border-top:1px solid var(--hair);padding-top:1.4rem;max-width:30rem}
-.get h3{font-size:clamp(1.7rem, 1.4rem + 1.4vw, 2.6rem);line-height:1.05;margin-bottom:.7rem}
-.get p{color:var(--text-soft);text-wrap:pretty}
+.get > div{border-top:2px solid var(--peacock);padding-top:1.4rem;max-width:30rem}
+.get h3{font-size:clamp(1.6rem, 1.4rem + 1.3vw, 2.4rem);line-height:1.1;margin-bottom:.7rem}
+.get p{color:var(--ink-soft);text-wrap:pretty}
 
 /* ── who this isn't for ───────────────────────────────────── */
-.not-sec{padding-block:var(--sec-tight) var(--sec);background:var(--night-2)}
-.nots{
-  list-style:none;margin:clamp(2.5rem, 6vh, 4rem) 0 0;padding:0;
-  border-top:1px solid var(--hair);
-}
+.not-sec{padding-block:var(--sec-tight) var(--sec);background:var(--paper-2)}
+.nots{list-style:none;margin:clamp(2.5rem, 6vh, 4rem) 0 0;padding:0;border-top:1px solid var(--hair)}
 .nots li{
   display:grid;gap:.5rem 3rem;
   padding-block:clamp(1.5rem, 3.5vh, 2.2rem);
@@ -538,93 +571,92 @@ h2{
 }
 @media (min-width:900px){.nots li{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:baseline}}
 .nots h3{
-  font-family:var(--serif);font-weight:500;
-  font-size:clamp(1.35rem, 1.15rem + .9vw, 1.9rem);line-height:1.25;
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(1.3rem, 1.15rem + .85vw, 1.85rem);line-height:1.3;letter-spacing:-.015em;
 }
-.nots p{margin:0;color:var(--text-soft);font-size:1.05em;text-wrap:pretty}
-.honest{
-  margin-top:clamp(3rem, 7vh, 5rem);max-width:40rem;margin-left:auto;
-}
+.nots p{margin:0;color:var(--ink-soft);font-size:1.04em;text-wrap:pretty}
+.honest{margin-top:clamp(3rem, 7vh, 5rem);max-width:40rem;margin-left:auto}
 .honest p:first-child{
-  font-family:var(--display);
-  font-size:clamp(1.45rem, 1.2rem + 1.1vw, 2.1rem);line-height:1.2;margin-bottom:.8em;
-  text-wrap:balance;
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(1.4rem, 1.2rem + 1.05vw, 2rem);line-height:1.25;margin-bottom:.8em;
+  text-wrap:balance;color:var(--ink);letter-spacing:-.018em;
 }
-.honest p{color:var(--text-soft);text-wrap:pretty}
+.honest p{color:var(--ink-soft);text-wrap:pretty}
 
 /* ── close ────────────────────────────────────────────────── */
+/* The one deep section on the page. You have fallen all the way
+   through: deep plum, her sky behind it. White is 13.19:1 here. */
 .close{
-  position:relative;isolation:isolate;overflow:hidden;
-  min-height:92dvh;display:grid;align-items:center;
+  position:relative;overflow:hidden;
+  min-height:90dvh;display:grid;align-items:center;
   padding-block:var(--sec);
+  background:var(--plum-deep);color:#fff;
 }
-.close .wrap{width:100%}
-.close::before{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:var(--night);opacity:.7;
+.close .bg-img{
+  position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;
+  opacity:.34;
 }
+.close .wrap{width:100%;position:relative;z-index:1}
 .close-l{
-  font-family:var(--display);
-  font-size:clamp(1.9rem, 1.3rem + 3vw, 4rem);line-height:1.05;margin:0 0 .18em;
-  max-width:30ch;text-wrap:balance;
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(1.85rem, 1.3rem + 2.8vw, 3.8rem);line-height:1.1;margin:0 0 .18em;
+  max-width:30ch;text-wrap:balance;letter-spacing:-.022em;
 }
-.close-l.pink{margin-left:clamp(0rem, 6vw, 6rem);color:var(--pink-bright)}
-.close-after{
-  margin:1.8rem 0 0;font-style:italic;font-size:1.35rem;color:var(--text);
-}
+.close-l.accent{margin-left:clamp(0rem, 6vw, 6rem);color:var(--peaches)}  /* 6.76:1 */
+.close-after{margin:1.8rem 0 0;font-style:italic;font-size:1.3rem;color:#ffd9d6}
 .btn{
   display:inline-flex;align-items:center;gap:.7rem;
   margin-top:2.6rem;
-  background:var(--pink-bright);color:var(--night);
+  background:var(--peacock);color:var(--gray);          /* 5.28:1 */
   font-family:var(--sans);font-weight:700;font-size:1.05rem;letter-spacing:.005em;
   padding:1.05rem 1.6rem 1.1rem;text-decoration:none;
   border:0;cursor:pointer;appearance:none;-webkit-appearance:none;
   transition:background .3s var(--ease-soft),transform .5s var(--ease);
 }
-.btn:hover{background:var(--peach);transform:translateY(-2px)}
+.btn:hover{background:var(--peaches);transform:translateY(-2px)}  /* 6.28:1 */
 .btn:active{transform:translateY(0) scale(.985)}
-.btn:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
 
 /* ── newsletter ───────────────────────────────────────────── */
-.news{background:var(--night-2);padding-block:var(--sec-tight)}
+.news{background:var(--paper-2);padding-block:var(--sec-tight)}
 .news-in{display:grid;gap:2rem}
 @media (min-width:900px){.news-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(3rem, 8vw, 8rem);align-items:center}}
-.news h2{font-size:clamp(1.9rem, 1.4rem + 2vw, 3rem)}
-.news h2 em{font-style:normal;color:var(--pink)}
-.news p{margin-top:.8rem;color:var(--text-soft);max-width:28rem}
+.news h2{font-size:clamp(1.85rem, 1.4rem + 1.9vw, 2.9rem)}
+.news h2 em{font-style:normal;color:var(--cranberry-ink)}
+.news p{margin-top:.8rem;color:var(--ink-soft);max-width:28rem}
 .news form{display:grid;gap:.75rem}
 @media (min-width:520px){.news form{grid-template-columns:minmax(0,1fr) auto}}
 .news input{
   width:100%;padding:1rem 1.1rem;
-  background:var(--night);color:var(--text);
-  border:1px solid var(--hair);
-  font-family:var(--serif);font-size:1.1rem;
+  background:var(--paper);color:var(--ink);
+  border:1px solid var(--ink-dim);
+  font-family:var(--serif);font-size:1.08rem;
   transition:border-color .3s;
 }
-.news input::placeholder{color:var(--text-dim)}
-.news input:focus{outline:none;border-color:var(--pink-bright)}
+.news input::placeholder{color:var(--ink-dim)}
+.news input:focus{outline:none;border-color:var(--peacock-ink);box-shadow:0 0 0 3px #00bfad33}
 .news .btn{margin:0;padding-block:.95rem}
-.news small{grid-column:1 / -1;font-family:var(--sans);color:var(--text-dim);font-size:.95rem}
+.news small{grid-column:1 / -1;font-family:var(--sans);color:var(--ink-soft);font-size:.95rem}
 
 /* ── footer ───────────────────────────────────────────────── */
-footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
+footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans);background:var(--paper)}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem 3rem;align-items:flex-end}
-.foot-tag{font-family:var(--serif);font-style:italic;color:var(--text-soft);margin:.6rem 0 0;font-size:1.05rem}
+.foot-tag{font-family:var(--serif);font-style:italic;color:var(--ink-soft);margin:.6rem 0 0;font-size:1.04rem}
 .foot-links{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;list-style:none;margin:0;padding:0;font-size:1rem}
-.foot-links a{color:var(--text-soft);text-decoration:none;transition:color .3s}
-.foot-links a:hover{color:var(--pink-bright)}
+.foot-links a{color:var(--ink-soft);text-decoration:none;transition:color .3s}
+.foot-links a:hover{color:var(--peacock-ink)}
 .foot-base{
   margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--hair-soft);
   display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem;
-  font-size:.92rem;color:var(--text-dim);
+  font-size:.92rem;color:var(--ink-soft);
 }
 .foot-base a{color:inherit;text-decoration:none}
-.foot-base a:hover{color:var(--pink-bright)}
+.foot-base a:hover{color:var(--peacock-ink)}
 
 /* ── reduced motion ───────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
-  .js .hero-img,.js .ln > span,.js .hero-sub{animation:none}
+  .js .hero-sky img,.js .ln > span,.js .hero-sub{animation:none}
   .door-in{transform:none!important;opacity:1!important}
   .lock .dial{transition:none}
   .key::before{transition:none}
@@ -647,24 +679,25 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
 
   <!-- ═══ HERO ═══ -->
   <section class="hero" aria-labelledby="hero-h">
-    <img class="hero-img"
-         src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=2200&q=80"
-         srcset="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=900&q=75 900w,
-                 https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=1600&q=80 1600w,
-                 https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=2200&q=80 2200w"
-         sizes="100vw"
-         alt="A nebula, violet and rose, spread across a black sky. The same sky she has on her homepage."
-         fetchpriority="high" decoding="async">
     <div class="wrap hero-in">
       <h1 id="hero-h">
         <span class="ln"><span>You’ve found</span></span>
         <span class="ln"><span>everything</span></span>
-        <span class="ln"><span class="pink">except yourself.</span></span>
+        <span class="ln"><span class="accent">except yourself.</span></span>
       </h1>
       <div class="hero-sub">
         <p>You know all the words. You’ve done the years. And the actual thing still hasn’t moved.</p>
         <p>There are four places you feel it most. Each one has a trap door underneath it, and it has been sending you back for a very long time.</p>
       </div>
+    </div>
+    <div class="hero-sky">
+      <img src="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=2200&q=80"
+           srcset="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=900&q=75 900w,
+                   https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=1600&q=80 1600w,
+                   https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?auto=format&fit=crop&w=2200&q=80 2200w"
+           sizes="100vw"
+           alt="A nebula, violet and rose, spread across a black sky. The same sky she has on her homepage."
+           fetchpriority="high" decoding="async">
     </div>
     <nav class="floor" aria-label="The four trap doors">
       <a href="#money" style="--f:var(--floor-money);--fi:var(--floor-money-ink)">Money <svg class="arrow" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M0 5h14.5M10.5 1 14.5 5l-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
@@ -677,7 +710,7 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
   <!-- ═══ THE FOUR DOORS ═══ -->
   <div class="doors" id="doors">
 
-    <section class="door" id="money" style="--f:var(--floor-money);--fi:var(--floor-money-ink);--tint:.86" aria-labelledby="money-h">
+    <section class="door" id="money" style="--f:var(--floor-money);--fi:var(--floor-money-ink);--tint:.3" aria-labelledby="money-h">
       <img class="door-img" src="https://images.unsplash.com/photo-1518066000714-58c45f1a2c0a?auto=format&fit=crop&w=1800&q=70" alt="" loading="lazy" decoding="async" style="object-position:center 40%">
       <div class="wrap door-in">
         <h2 class="door-name" id="money-h">Money.</h2>
@@ -688,7 +721,7 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
       </div>
     </section>
 
-    <section class="door" id="love" style="--f:var(--floor-love);--fi:var(--floor-love-ink);--tint:.80" aria-labelledby="love-h">
+    <section class="door" id="love" style="--f:var(--floor-love);--fi:var(--floor-love-ink);--tint:.5" aria-labelledby="love-h">
       <img class="door-img" src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?auto=format&fit=crop&w=1800&q=70" alt="" loading="lazy" decoding="async" style="object-position:center 45%">
       <div class="wrap door-in">
         <h2 class="door-name" id="love-h">Love.</h2>
@@ -699,7 +732,7 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
       </div>
     </section>
 
-    <section class="door" id="midlife" style="--f:var(--floor-midlife);--fi:var(--floor-midlife-ink);--tint:.82" aria-labelledby="midlife-h">
+    <section class="door" id="midlife" style="--f:var(--floor-midlife);--fi:var(--floor-midlife-ink);--tint:.5" aria-labelledby="midlife-h">
       <img class="door-img" src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=1800&q=70" alt="" loading="lazy" decoding="async" style="object-position:center 50%">
       <div class="wrap door-in">
         <h2 class="door-name" id="midlife-h">Midlife.</h2>
@@ -710,7 +743,7 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
       </div>
     </section>
 
-    <section class="door" id="identity" style="--f:var(--floor-identity);--fi:var(--floor-identity-ink);--tint:.84" aria-labelledby="identity-h">
+    <section class="door" id="identity" style="--f:var(--floor-identity);--fi:var(--floor-identity-ink);--tint:.42;--print:screen" aria-labelledby="identity-h">
       <img class="door-img" src="https://images.unsplash.com/photo-1543722530-d2c3201371e7?auto=format&fit=crop&w=1800&q=70" alt="" loading="lazy" decoding="async" style="object-position:center 50%">
       <div class="wrap door-in">
         <h2 class="door-name" id="identity-h">Identity.</h2>
@@ -753,7 +786,7 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
   <!-- ═══ SEVEN TURNS ═══ -->
   <section class="turns-sec" id="how" aria-labelledby="how-h">
     <div class="wrap">
-      <h2 id="how-h">Every key takes you through <span class="pink">seven turns of the lock.</span></h2>
+      <h2 id="how-h">Every key takes you through <span class="accent">seven turns of the lock.</span></h2>
 
       <div class="turns-grid">
         <div class="lock-wrap" aria-hidden="true">
@@ -852,7 +885,7 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
   <section class="gap-sec" aria-labelledby="gap-h">
     <div class="wrap split">
       <div>
-        <h2 id="gap-h">A name for <span class="pink">the trap door.</span></h2>
+        <h2 id="gap-h">A name for <span class="accent">the trap door.</span></h2>
         <p class="lede" style="margin-top:1rem">What’s happening. Why it’s happening. And a way to get through it.</p>
         <p class="gap-line">How different could your life be?</p>
       </div>
@@ -894,7 +927,7 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
   <!-- ═══ WHAT YOU GET ═══ -->
   <section class="get-sec" aria-labelledby="get-h">
     <div class="wrap">
-      <h2 id="get-h">One key. <span class="pink">One healing session.</span></h2>
+      <h2 id="get-h">One key. <span class="accent">One healing session.</span></h2>
       <p class="lede">Both audios yours to listen anytime.</p>
       <div class="get">
         <div>
@@ -912,7 +945,7 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
   <!-- ═══ WHO THIS ISN'T FOR ═══ -->
   <section class="not-sec" aria-labelledby="not-h">
     <div class="wrap">
-      <h2 id="not-h">Three good reasons to <span class="pink">close this tab.</span></h2>
+      <h2 id="not-h">Three good reasons to <span class="accent">close this tab.</span></h2>
       <ol class="nots">
         <li>
           <h3>Don’t buy this if you want to be told what to do.</h3>
@@ -939,7 +972,7 @@ footer{padding-block:clamp(3rem, 6vh, 4.5rem) 2.5rem;font-family:var(--sans)}
     <img class="bg-img" src="https://images.unsplash.com/photo-1443926818681-717d074a57af?auto=format&fit=crop&w=1800&q=70" alt="" loading="lazy" decoding="async">
     <div class="wrap">
       <p class="close-l">You will know the key.</p>
-      <p class="close-l pink">You will name the trap door.</p>
+      <p class="close-l accent">You will name the trap door.</p>
       <p class="close-l">You will know what to do to move through it.</p>
       <p class="close-after">What you do with it next is up to you.</p>
       <a class="btn" href="#keys">Choose your key
